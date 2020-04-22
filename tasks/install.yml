@@ -25,6 +25,30 @@
     user_install: no
   changed_when: false
 
+- name: FLUENTD | install elasticsearch-transport gem
+  gem:
+    name: elasticsearch-transport
+    state: present
+    version: "{{ elasticsearch_transport_version }}"
+    user_install: no
+  changed_when: false
+
+- name: FLUENTD | install elasticsearch gem
+  gem:
+    name: elasticsearch
+    state: present
+    version: "{{ elasticsearch_version }}"
+    user_install: no
+  changed_when: false
+
+- name: FLUENTD | install fluent-plugin-elasticsearch gem
+  gem:
+    name: fluent-plugin-elasticsearch
+    state: present
+    version: "{{ fluent_plugin_elasticsearch_version }}"
+    user_install: no
+  changed_when: false
+
 - name: FLUENTD | install fluentd plugin gems
   gem:
     name: "{{ item }}"
